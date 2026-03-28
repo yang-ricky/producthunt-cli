@@ -11,17 +11,22 @@ export const authCommand = new Command("auth").description("Manage authenticatio
 authCommand
   .command("set-token")
   .description("Set your Product Hunt Developer Token")
-  .action(async () => {
-    console.log("Get your token from: https://www.producthunt.com/v2/oauth/applications");
-    console.log("Open your app → scroll to 'Developer Token' at the bottom.\n");
+  .argument("[token]", "Developer Token (omit for interactive prompt)")
+  .action(async (tokenArg?: string) => {
+    let token = tokenArg?.trim();
 
-    const rl = createInterface({ input: process.stdin, output: process.stderr });
-    const token = await new Promise<string>((resolve) => {
-      rl.question("Paste your token: ", (answer: string) => {
-        rl.close();
-        resolve(answer.trim());
+    if (!token) {
+      console.log("Get your token from: https://www.producthunt.com/v2/oauth/applications");
+      console.log("Open your app → scroll to 'Developer Token' at the bottom.\n");
+
+      const rl = createInterface({ input: process.stdin, output: process.stderr });
+      token = await new Promise<string>((resolve) => {
+        rl.question("Paste your token: ", (answer: string) => {
+          rl.close();
+          resolve(answer.trim());
+        });
       });
-    });
+    }
 
     if (!token) {
       console.error("No token provided.");
