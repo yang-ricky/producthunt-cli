@@ -1,0 +1,57 @@
+{
+  "name": "producthunt-cli",
+  "version": "0.1.0",
+  "description": "A command-line interface for Product Hunt",
+  "type": "module",
+  "bin": {
+    "producthunt": "./dist/index.js",
+    "ph": "./dist/index.js"
+  },
+  "exports": {},
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yang/producthunt-cli"
+  },
+  "homepage": "https://github.com/yang/producthunt-cli#readme",
+  "bugs": {
+    "url": "https://github.com/yang/producthunt-cli/issues"
+  },
+  "keywords": [
+    "producthunt",
+    "product-hunt",
+    "cli",
+    "graphql",
+    "terminal"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.3",
+    "cosmiconfig": "^9.0.1",
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.9",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.5.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}
