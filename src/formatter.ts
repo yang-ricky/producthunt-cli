@@ -3,12 +3,20 @@ import Table from "cli-table3";
 import type { Post, User, Topic, Collection, Comment } from "./models/index.js";
 import { shouldUseColor } from "./output.js";
 
-const c = new Proxy(chalk, {
-  get(target, prop, receiver) {
-    if (!shouldUseColor()) return (s: string) => s;
-    return Reflect.get(target, prop, receiver);
-  },
-}) as typeof chalk;
+function createNoColorChalk(): typeof chalk {
+  const identity = (s: string) => s;
+  const handler: ProxyHandler<typeof identity> = {
+    get(_target, _prop) {
+      return new Proxy(identity, handler);
+    },
+    apply(_target, _thisArg, args) {
+      return args[0];
+    },
+  };
+  return new Proxy(identity, handler) as unknown as typeof chalk;
+}
+
+const c = shouldUseColor() ? chalk : createNoColorChalk();
 
 // ===== Posts =====
 

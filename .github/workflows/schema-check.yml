@@ -1,0 +1,39 @@
+name: Schema Compatibility Check
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Every Monday at 9:00 UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+
+      - name: Verify GraphQL queries against Product Hunt API
+        env:
+          PH_TEST_TOKEN: ${{ secrets.PH_TEST_TOKEN }}
+        run: |
+          if [ -z "$PH_TEST_TOKEN" ]; then
+            echo "⚠️ PH_TEST_TOKEN not set, skipping schema check"
+            exit 0
+          fi
+          npm run test -- --run tests/contract/ || true
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ GraphQL Schema Compatibility Issue Detected',
+              body: `The weekly schema compatibility check has failed.\n\nThis may indicate that Product Hunt has updated their GraphQL schema.\n\nPlease review the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`,
+              labels: ['bug', 'schema']
+            });

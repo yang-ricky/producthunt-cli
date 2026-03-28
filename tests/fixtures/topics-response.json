@@ -1,0 +1,38 @@
+{
+  "data": {
+    "topics": {
+      "edges": [
+        {
+          "node": {
+            "id": "10",
+            "name": "Developer Tools",
+            "slug": "developer-tools",
+            "description": "Tools for developers to build, test, and deploy software.",
+            "url": "https://www.producthunt.com/topics/developer-tools",
+            "postsCount": 5230,
+            "followersCount": 42100,
+            "isFollowing": false,
+            "image": "https://ph-files.imgix.net/topics/devtools.png"
+          }
+        },
+        {
+          "node": {
+            "id": "11",
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence",
+            "description": "AI-powered products and tools.",
+            "url": "https://www.producthunt.com/topics/artificial-intelligence",
+            "postsCount": 8120,
+            "followersCount": 89500,
+            "isFollowing": false,
+            "image": null
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "endCursor": "dG9waWNfMTE="
+      }
+    }
+  }
+}

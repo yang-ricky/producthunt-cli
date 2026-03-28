@@ -1,0 +1,97 @@
+{
+  "data": {
+    "post": {
+      "id": "456789",
+      "name": "DevTools Pro",
+      "tagline": "The ultimate developer toolkit",
+      "description": "DevTools Pro helps developers build faster with AI-powered code completion, debugging, and testing tools.",
+      "slug": "devtools-pro",
+      "url": "https://www.producthunt.com/posts/devtools-pro",
+      "website": "https://devtools.pro",
+      "votesCount": 342,
+      "commentsCount": 28,
+      "reviewsRating": 4.5,
+      "createdAt": "2026-03-28T08:00:00Z",
+      "featuredAt": "2026-03-28T10:00:00Z",
+      "isVoted": false,
+      "isCollected": false,
+      "thumbnail": { "url": "https://ph-files.imgix.net/devtools-thumb.png" },
+      "makers": [
+        {
+          "id": "111",
+          "name": "Alice Chen",
+          "username": "alicechen",
+          "headline": "Founder @ DevTools Pro",
+          "profileImage": "https://ph-avatars.imgix.net/alice.jpg"
+        }
+      ],
+      "media": [
+        { "type": "image", "url": "https://ph-files.imgix.net/devtools-1.png", "videoUrl": null },
+        { "type": "video", "url": "https://ph-files.imgix.net/devtools-2.mp4", "videoUrl": "https://ph-files.imgix.net/devtools-2.mp4" }
+      ],
+      "topics": {
+        "edges": [
+          { "node": { "id": "10", "name": "Developer Tools", "slug": "developer-tools", "url": "https://www.producthunt.com/topics/developer-tools" } },
+          { "node": { "id": "11", "name": "Artificial Intelligence", "slug": "artificial-intelligence", "url": "https://www.producthunt.com/topics/artificial-intelligence" } }
+        ]
+      },
+      "comments": {
+        "edges": [
+          {
+            "node": {
+              "id": "c1",
+              "body": "This is amazing! Been waiting for something like this.",
+              "url": "https://www.producthunt.com/posts/devtools-pro#comment-c1",
+              "createdAt": "2026-03-28T11:00:00Z",
+              "votesCount": 5,
+              "isVoted": false,
+              "user": {
+                "id": "222",
+                "name": "Bob Smith",
+                "username": "bobsmith",
+                "profileImage": "https://ph-avatars.imgix.net/bob.jpg"
+              },
+              "replies": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "c2",
+                      "body": "Thanks Bob! Glad you like it.",
+                      "url": "https://www.producthunt.com/posts/devtools-pro#comment-c2",
+                      "createdAt": "2026-03-28T11:30:00Z",
+                      "votesCount": 2,
+                      "isVoted": false,
+                      "user": {
+                        "id": "111",
+                        "name": "Alice Chen",
+                        "username": "alicechen",
+                        "profileImage": "https://ph-avatars.imgix.net/alice.jpg"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "c3",
+              "body": "How does this compare to existing tools?",
+              "url": "https://www.producthunt.com/posts/devtools-pro#comment-c3",
+              "createdAt": "2026-03-28T12:00:00Z",
+              "votesCount": 3,
+              "isVoted": false,
+              "user": {
+                "id": "333",
+                "name": "Charlie Kim",
+                "username": "charliekim",
+                "profileImage": "https://ph-avatars.imgix.net/charlie.jpg"
+              },
+              "replies": { "edges": [] }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

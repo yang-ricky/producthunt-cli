@@ -1,0 +1,18 @@
+{
+  "data": {
+    "user": {
+      "id": "111",
+      "name": "Alice Chen",
+      "username": "alicechen",
+      "headline": "Founder @ DevTools Pro",
+      "profileImage": "https://ph-avatars.imgix.net/alice.jpg",
+      "coverImage": "https://ph-avatars.imgix.net/alice-cover.jpg",
+      "url": "https://www.producthunt.com/@alicechen",
+      "websiteUrl": "https://alicechen.dev",
+      "twitterUsername": "alicechen_dev",
+      "isMaker": true,
+      "isFollowing": false,
+      "createdAt": "2023-01-15T00:00:00Z"
+    }
+  }
+}

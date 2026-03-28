@@ -112,9 +112,9 @@ async function graphqlRequest(
   return json.data;
 }
 
-// ===== Response Parsers =====
+// ===== Response Parsers (exported for testing) =====
 
-function parseUser(raw: Record<string, unknown>): User {
+export function parseUser(raw: Record<string, unknown>): User {
   return {
     id: raw.id as string,
     name: raw.name as string,
@@ -131,7 +131,7 @@ function parseUser(raw: Record<string, unknown>): User {
   };
 }
 
-function parseComment(raw: Record<string, unknown>): Comment {
+export function parseComment(raw: Record<string, unknown>): Comment {
   const repliesEdges = (raw.replies as Record<string, unknown>)?.edges as Array<Record<string, unknown>> | undefined;
   return {
     id: raw.id as string,
@@ -145,7 +145,7 @@ function parseComment(raw: Record<string, unknown>): Comment {
   };
 }
 
-function parseMedia(raw: Record<string, unknown>): PostMedia {
+export function parseMedia(raw: Record<string, unknown>): PostMedia {
   return {
     type: raw.type as "image" | "video",
     url: raw.url as string,
@@ -153,7 +153,7 @@ function parseMedia(raw: Record<string, unknown>): PostMedia {
   };
 }
 
-function parsePost(raw: Record<string, unknown>): Post {
+export function parsePost(raw: Record<string, unknown>): Post {
   const makersEdges = (raw.makers as Record<string, unknown>[]) ?? [];
   const makers = Array.isArray(makersEdges)
     ? makersEdges.map((m) => parseUser(m as Record<string, unknown>))
@@ -193,7 +193,7 @@ function parsePost(raw: Record<string, unknown>): Post {
   };
 }
 
-function parseTopic(raw: Record<string, unknown>): Topic {
+export function parseTopic(raw: Record<string, unknown>): Topic {
   return {
     id: raw.id as string,
     name: raw.name as string,
@@ -207,7 +207,7 @@ function parseTopic(raw: Record<string, unknown>): Topic {
   };
 }
 
-function parseCollection(raw: Record<string, unknown>): Collection {
+export function parseCollection(raw: Record<string, unknown>): Collection {
   return {
     id: raw.id as string,
     name: raw.name as string,
@@ -222,7 +222,7 @@ function parseCollection(raw: Record<string, unknown>): Collection {
   };
 }
 
-function parsePageInfo(raw: Record<string, unknown>): PageInfo {
+export function parsePageInfo(raw: Record<string, unknown>): PageInfo {
   return {
     hasNextPage: (raw.hasNextPage as boolean) ?? false,
     endCursor: (raw.endCursor as string) ?? null,

@@ -1,0 +1,40 @@
+{
+  "data": {
+    "collections": {
+      "edges": [
+        {
+          "node": {
+            "id": "c100",
+            "name": "Best AI Tools 2026",
+            "tagline": "Curated list of the best AI tools",
+            "description": "A hand-picked collection of AI tools.",
+            "coverImage": "https://ph-files.imgix.net/collections/ai-tools.png",
+            "url": "https://www.producthunt.com/collections/best-ai-tools-2026",
+            "followersCount": 1520,
+            "isFollowing": false,
+            "user": { "id": "111", "name": "Alice Chen", "username": "alicechen" },
+            "featuredAt": "2026-03-15T00:00:00Z"
+          }
+        },
+        {
+          "node": {
+            "id": "c101",
+            "name": "Remote Work Essentials",
+            "tagline": "Tools for productive remote work",
+            "description": null,
+            "coverImage": null,
+            "url": "https://www.producthunt.com/collections/remote-work-essentials",
+            "followersCount": 890,
+            "isFollowing": false,
+            "user": null,
+            "featuredAt": null
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": false,
+        "endCursor": null
+      }
+    }
+  }
+}

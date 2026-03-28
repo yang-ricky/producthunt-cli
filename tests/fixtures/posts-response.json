@@ -1,0 +1,80 @@
+{
+  "data": {
+    "posts": {
+      "edges": [
+        {
+          "node": {
+            "id": "456789",
+            "name": "DevTools Pro",
+            "tagline": "The ultimate developer toolkit",
+            "description": "AI-powered developer tools.",
+            "slug": "devtools-pro",
+            "url": "https://www.producthunt.com/posts/devtools-pro",
+            "website": "https://devtools.pro",
+            "votesCount": 342,
+            "commentsCount": 28,
+            "reviewsRating": 4.5,
+            "createdAt": "2026-03-28T08:00:00Z",
+            "featuredAt": "2026-03-28T10:00:00Z",
+            "isVoted": false,
+            "isCollected": false,
+            "thumbnail": { "url": "https://ph-files.imgix.net/devtools-thumb.png" },
+            "makers": [
+              { "id": "111", "name": "Alice Chen", "username": "alicechen", "headline": "Founder", "profileImage": null }
+            ],
+            "media": [],
+            "topics": { "edges": [{ "node": { "id": "10", "name": "Developer Tools", "slug": "developer-tools", "url": "https://www.producthunt.com/topics/developer-tools" } }] }
+          }
+        },
+        {
+          "node": {
+            "id": "456790",
+            "name": "DesignFlow",
+            "tagline": "Collaborative design made simple",
+            "description": "Real-time collaborative design tool.",
+            "slug": "designflow",
+            "url": "https://www.producthunt.com/posts/designflow",
+            "website": "https://designflow.app",
+            "votesCount": 215,
+            "commentsCount": 12,
+            "reviewsRating": null,
+            "createdAt": "2026-03-28T07:00:00Z",
+            "featuredAt": "2026-03-28T09:00:00Z",
+            "isVoted": false,
+            "isCollected": false,
+            "thumbnail": null,
+            "makers": [],
+            "media": [],
+            "topics": { "edges": [] }
+          }
+        },
+        {
+          "node": {
+            "id": "456791",
+            "name": "NoteAI",
+            "tagline": "Smart notes that think with you",
+            "description": null,
+            "slug": "noteai",
+            "url": "https://www.producthunt.com/posts/noteai",
+            "website": null,
+            "votesCount": 98,
+            "commentsCount": 5,
+            "reviewsRating": null,
+            "createdAt": "2026-03-28T06:00:00Z",
+            "featuredAt": null,
+            "isVoted": false,
+            "isCollected": false,
+            "thumbnail": null,
+            "makers": [],
+            "media": [],
+            "topics": { "edges": [] }
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "endCursor": "Y3Vyc29yOnYyOnM6NDU2Nzkx"
+      }
+    }
+  }
+}
