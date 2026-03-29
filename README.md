@@ -5,7 +5,7 @@ A command-line interface for [Product Hunt](https://www.producthunt.com). Browse
 ## Install
 
 ```bash
-npm install -g producthunt-cli
+npm install -g @yshua5631/producthunt-cli
 ```
 
 Requires **Node.js >= 20**.

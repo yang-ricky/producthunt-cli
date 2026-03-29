@@ -1,5 +1,5 @@
 {
-  "name": "producthunt-cli",
+  "name": "@yshua5631/producthunt-cli",
   "version": "0.1.0",
   "description": "A command-line interface for Product Hunt",
   "type": "module",
