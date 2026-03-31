@@ -1,11 +1,4 @@
-import type {
-  Post,
-  User,
-  Viewer,
-  Topic,
-  Collection,
-  PaginatedResult,
-} from "../models/index.js";
+import type { Collection, PaginatedResult, Post, Topic, User, Viewer } from "../models/index.js";
 
 export interface PostsOptions {
   first?: number;

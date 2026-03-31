@@ -1,7 +1,7 @@
 import { Command } from "commander";
-import { createBackend, getOutputFormat } from "./shared.js";
 import { formatUserDetail } from "../formatter.js";
 import { serialize } from "../serializer.js";
+import { createBackend, getOutputFormat } from "./shared.js";
 
 export const userCommand = new Command("user")
   .description("View a user's profile")

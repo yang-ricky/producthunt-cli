@@ -1,9 +1,8 @@
-import { readFileSync, writeFileSync, mkdirSync, chmodSync } from "node:fs";
-import { join } from "node:path";
+import { chmodSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir, platform } from "node:os";
+import { join } from "node:path";
 import yaml from "js-yaml";
 import { CONFIG_DIR_NAME, CONFIG_FILE_NAME } from "./constants.js";
-import { ConfigError } from "./errors.js";
 
 export interface AppConfig {
   token?: string;

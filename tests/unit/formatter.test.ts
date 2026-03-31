@@ -1,14 +1,15 @@
-import { describe, it, expect, vi } from "vitest";
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parsePost, parseUser, parseTopic, parseCollection } from "../../src/backends/graphql.js";
+import { stripVTControlCharacters } from "node:util";
+import { describe, expect, it, vi } from "vitest";
+import { parseCollection, parsePost, parseTopic, parseUser } from "../../src/backends/graphql.js";
 import {
-  formatPostsTable,
-  formatPostDetail,
-  formatUserDetail,
-  formatTopicsTable,
   formatCollectionsTable,
+  formatPostDetail,
+  formatPostsTable,
+  formatTopicsTable,
+  formatUserDetail,
 } from "../../src/formatter.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -26,8 +27,7 @@ function captureLog(fn: () => void): string {
   });
   fn();
   spy.mockRestore();
-  // Strip ANSI escape codes for reliable matching
-  return logs.join("\n").replace(/\x1B\[[0-9;]*m/g, "");
+  return stripVTControlCharacters(logs.join("\n"));
 }
 
 describe("formatPostsTable", () => {
@@ -98,8 +98,8 @@ describe("formatTopicsTable", () => {
 describe("formatCollectionsTable", () => {
   it("outputs collections table", () => {
     const fixture = loadFixture("collections-response.json");
-    const collections = fixture.data.collections.edges.map(
-      (e: { node: Record<string, unknown> }) => parseCollection(e.node),
+    const collections = fixture.data.collections.edges.map((e: { node: Record<string, unknown> }) =>
+      parseCollection(e.node),
     );
 
     const output = captureLog(() => formatCollectionsTable(collections));

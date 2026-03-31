@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { resolveOutputFormat, shouldUseColor } from "../../src/output.js";
 
 describe("resolveOutputFormat", () => {
@@ -13,9 +13,7 @@ describe("resolveOutputFormat", () => {
   it("returns json when both --json and --yaml are set (json wins)", () => {
     const stderrSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(resolveOutputFormat({ json: true, yaml: true })).toBe("json");
-    expect(stderrSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Both --json and --yaml"),
-    );
+    expect(stderrSpy).toHaveBeenCalledWith(expect.stringContaining("Both --json and --yaml"));
     stderrSpy.mockRestore();
   });
 

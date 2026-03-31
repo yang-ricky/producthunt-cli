@@ -1,7 +1,7 @@
 import { Command } from "commander";
-import { createBackend, getOutputFormat } from "./shared.js";
 import { formatTopicsTable } from "../formatter.js";
 import { serialize } from "../serializer.js";
+import { createBackend, getOutputFormat } from "./shared.js";
 
 export const topicsCommand = new Command("topics")
   .description("Browse topics")

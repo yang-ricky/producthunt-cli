@@ -1,7 +1,7 @@
 import { Command } from "commander";
-import { createBackend, getOutputFormat } from "./shared.js";
 import { formatCollectionsTable } from "../formatter.js";
 import { serialize } from "../serializer.js";
+import { createBackend, getOutputFormat } from "./shared.js";
 
 export const collectionsCommand = new Command("collections")
   .description("Browse collections")

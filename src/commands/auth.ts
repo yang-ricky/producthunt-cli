@@ -1,8 +1,8 @@
-import { Command } from "commander";
 import { createInterface } from "node:readline";
+import { Command } from "commander";
 import { TokenAuth } from "../auth/token.js";
-import { resolveToken, saveConfig, loadConfig, clearToken } from "../config.js";
 import { getLastRateLimitInfo } from "../backends/graphql.js";
+import { clearToken, loadConfig, resolveToken, saveConfig } from "../config.js";
 import { ExitCode } from "../errors.js";
 
 export const authCommand = new Command("auth").description("Manage authentication");
@@ -62,7 +62,9 @@ authCommand
     }
 
     console.log(`Token:  ${TokenAuth.mask(resolved.token)}`);
-    console.log(`Source: ${resolved.source === "env" ? "PRODUCTHUNT_TOKEN env var" : "~/.producthunt-cli/config.yaml"}`);
+    console.log(
+      `Source: ${resolved.source === "env" ? "PRODUCTHUNT_TOKEN env var" : "~/.producthunt-cli/config.yaml"}`,
+    );
 
     const auth = new TokenAuth(resolved.token);
     const valid = await auth.verify();

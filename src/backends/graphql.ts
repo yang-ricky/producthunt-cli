@@ -1,18 +1,18 @@
-import { API_ENDPOINT, RATE_LIMIT_HEADERS, DEFAULT_FIRST, DEFAULT_COMMENTS_FIRST } from "../constants.js";
-import { ApiError, AuthError, NetworkError, RateLimitError } from "../errors.js";
 import type { AuthProvider } from "../auth/types.js";
+import { API_ENDPOINT, DEFAULT_COMMENTS_FIRST, DEFAULT_FIRST, RATE_LIMIT_HEADERS } from "../constants.js";
+import { ApiError, AuthError, NetworkError, RateLimitError } from "../errors.js";
 import type {
-  Post,
-  User,
-  Viewer,
-  Topic,
   Collection,
   Comment,
-  PostMedia,
-  PaginatedResult,
   PageInfo,
+  PaginatedResult,
+  Post,
+  PostMedia,
+  Topic,
+  User,
+  Viewer,
 } from "../models/index.js";
-import type { Backend, PostsOptions, TopicsOptions, CollectionsOptions } from "./types.js";
+import type { Backend, CollectionsOptions, PostsOptions, TopicsOptions } from "./types.js";
 
 // ===== Rate Limit Tracking =====
 
@@ -89,10 +89,7 @@ async function graphqlRequest(
       return graphqlRequest(auth, query, variables, { ...options, wait: false });
     }
 
-    throw new RateLimitError(
-      `Rate limited. Try again in ${resetIn} seconds, or use --wait to auto-retry.`,
-      resetIn,
-    );
+    throw new RateLimitError(`Rate limited. Try again in ${resetIn} seconds, or use --wait to auto-retry.`, resetIn);
   }
 
   if (!res.ok) {
@@ -155,14 +152,10 @@ export function parseMedia(raw: Record<string, unknown>): PostMedia {
 
 export function parsePost(raw: Record<string, unknown>): Post {
   const makersEdges = (raw.makers as Record<string, unknown>[]) ?? [];
-  const makers = Array.isArray(makersEdges)
-    ? makersEdges.map((m) => parseUser(m as Record<string, unknown>))
-    : [];
+  const makers = Array.isArray(makersEdges) ? makersEdges.map((m) => parseUser(m as Record<string, unknown>)) : [];
 
   const mediaItems = (raw.media as Record<string, unknown>[]) ?? [];
-  const media = Array.isArray(mediaItems)
-    ? mediaItems.map((m) => parseMedia(m as Record<string, unknown>))
-    : [];
+  const media = Array.isArray(mediaItems) ? mediaItems.map((m) => parseMedia(m as Record<string, unknown>)) : [];
 
   const topicsEdges = (raw.topics as Record<string, unknown>)?.edges as Array<Record<string, unknown>> | undefined;
   const topics = topicsEdges?.map((e) => parseTopic(e.node as Record<string, unknown>)) ?? [];
@@ -187,7 +180,7 @@ export function parsePost(raw: Record<string, unknown>): Post {
     media,
     topics,
     comments,
-    thumbnail: (raw.thumbnail as Record<string, unknown>)?.url as string ?? null,
+    thumbnail: ((raw.thumbnail as Record<string, unknown>)?.url as string) ?? null,
     isVoted: (raw.isVoted as boolean) ?? false,
     isCollected: (raw.isCollected as boolean) ?? false,
   };

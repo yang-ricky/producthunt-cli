@@ -1,7 +1,7 @@
 import { Command } from "commander";
-import { createBackend, getOutputFormat } from "./shared.js";
 import { formatPostDetail } from "../formatter.js";
 import { serialize } from "../serializer.js";
+import { createBackend, getOutputFormat } from "./shared.js";
 
 export const postCommand = new Command("post")
   .description("View a product's details and comments")

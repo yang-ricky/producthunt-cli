@@ -28,7 +28,10 @@ export class AuthError extends CLIError {
 }
 
 export class ApiError extends CLIError {
-  constructor(message: string, public readonly statusCode?: number) {
+  constructor(
+    message: string,
+    public readonly statusCode?: number,
+  ) {
     super(message, ExitCode.ApiError, "api_error");
     this.name = "ApiError";
   }

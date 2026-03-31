@@ -1,8 +1,8 @@
 import { Command } from "commander";
 import { resolveTimezone } from "../config.js";
-import { createBackend, getOutputFormat } from "./shared.js";
 import { formatPostsTable } from "../formatter.js";
 import { serialize } from "../serializer.js";
+import { createBackend, getOutputFormat } from "./shared.js";
 
 export const todayCommand = new Command("today")
   .description("Show today's featured products on Product Hunt")

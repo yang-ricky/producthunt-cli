@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import Table from "cli-table3";
-import type { Post, User, Topic, Collection, Comment } from "./models/index.js";
+import type { Collection, Comment, Post, Topic, User } from "./models/index.js";
 import { shouldUseColor } from "./output.js";
 
 function createNoColorChalk(): typeof chalk {
@@ -22,14 +22,7 @@ const c = shouldUseColor() ? chalk : createNoColorChalk();
 
 export function formatPostsTable(posts: Post[]): void {
   const table = new Table({
-    head: [
-      c.bold("Rank"),
-      c.bold("Name"),
-      c.bold("Tagline"),
-      c.bold("Votes"),
-      c.bold("Comments"),
-      c.bold("Date"),
-    ],
+    head: [c.bold("Rank"), c.bold("Name"), c.bold("Tagline"), c.bold("Votes"), c.bold("Comments"), c.bold("Date")],
     colWidths: [6, 25, 40, 8, 10, 12],
     wordWrap: true,
   });
@@ -86,7 +79,9 @@ export function formatPostDetail(post: Post): void {
 function formatComment(comment: Comment, depth: number): void {
   const indent = "  ".repeat(depth);
   console.log();
-  console.log(`${indent}${c.bold(`@${comment.user.username}`)} ${c.dim(formatDate(comment.createdAt))} ${c.yellow(`+${comment.votesCount}`)}`);
+  console.log(
+    `${indent}${c.bold(`@${comment.user.username}`)} ${c.dim(formatDate(comment.createdAt))} ${c.yellow(`+${comment.votesCount}`)}`,
+  );
   console.log(`${indent}${comment.body}`);
 
   for (const reply of comment.replies) {
@@ -114,13 +109,7 @@ export function formatUserDetail(user: User): void {
 
 export function formatTopicsTable(topics: Topic[]): void {
   const table = new Table({
-    head: [
-      c.bold("#"),
-      c.bold("Name"),
-      c.bold("Description"),
-      c.bold("Posts"),
-      c.bold("Followers"),
-    ],
+    head: [c.bold("#"), c.bold("Name"), c.bold("Description"), c.bold("Posts"), c.bold("Followers")],
     colWidths: [5, 20, 45, 8, 11],
     wordWrap: true,
   });
@@ -142,13 +131,7 @@ export function formatTopicsTable(topics: Topic[]): void {
 
 export function formatCollectionsTable(collections: Collection[]): void {
   const table = new Table({
-    head: [
-      c.bold("#"),
-      c.bold("Name"),
-      c.bold("Tagline"),
-      c.bold("By"),
-      c.bold("Followers"),
-    ],
+    head: [c.bold("#"), c.bold("Name"), c.bold("Tagline"), c.bold("By"), c.bold("Followers")],
     colWidths: [5, 20, 40, 15, 11],
     wordWrap: true,
   });

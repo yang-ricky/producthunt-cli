@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { resolveToken, resolveTimezone } from "../../src/config.js";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { resolveTimezone, resolveToken } from "../../src/config.js";
 
 describe("resolveToken", () => {
   const originalEnv = process.env;

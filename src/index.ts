@@ -1,13 +1,13 @@
 import { createRequire } from "node:module";
 import { Command } from "commander";
-import { handleError } from "./output.js";
 import { authCommand } from "./commands/auth.js";
-import { todayCommand } from "./commands/today.js";
-import { postsCommand } from "./commands/posts.js";
-import { postCommand } from "./commands/post.js";
-import { userCommand } from "./commands/user.js";
-import { topicsCommand } from "./commands/topics.js";
 import { collectionsCommand } from "./commands/collections.js";
+import { postCommand } from "./commands/post.js";
+import { postsCommand } from "./commands/posts.js";
+import { todayCommand } from "./commands/today.js";
+import { topicsCommand } from "./commands/topics.js";
+import { userCommand } from "./commands/user.js";
+import { handleError } from "./output.js";
 
 const require = createRequire(import.meta.url);
 const pkg = require("../package.json");

@@ -1,13 +1,10 @@
 import yaml from "js-yaml";
-import type { CLIOutput } from "./models/index.js";
 import { type CLIError, ExitCode } from "./errors.js";
+import type { CLIOutput } from "./models/index.js";
 
 export type OutputFormat = "table" | "json" | "yaml";
 
-export function resolveOutputFormat(flags: {
-  json?: boolean;
-  yaml?: boolean;
-}): OutputFormat {
+export function resolveOutputFormat(flags: { json?: boolean; yaml?: boolean }): OutputFormat {
   if (flags.json && flags.yaml) {
     console.error("[warn] Both --json and --yaml specified. Using --json.");
   }
